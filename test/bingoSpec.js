@@ -6,11 +6,18 @@ var chai = require('chai'),
 
 chai.use(sinonChai);
 
-var bingo = require('../bingo.js');
+var Bingo = require('../bingo.js');
+var bingo;
+
 
 describe('Calling Bingo Numbers', function () {
   describe('Given I have a Bingo caller', function(){
     describe('When I call a number', function(){
+
+      beforeEach(function() {
+        bingo = new Bingo();
+      });
+
       it('Then the number is between 1 and 75 inclusive', function () {
         var number = bingo.callNumber();
         expect(number).to.be.most(75);
@@ -19,12 +26,14 @@ describe('Calling Bingo Numbers', function () {
     });
 
     describe('When I call a number 75 times', function(){
-      var allNumbers = [];
-      for(i=1;i<=75;i++){
-        allNumbers.push(bingo.callNumber());
-      }
-
-      expect(allNumbers).length.to.be(75);
+      var allNumbers ;
+      beforeEach(function() {
+        allNumbers = [];
+        bingo = new Bingo();
+        for(i=1; i<=75; i++){
+          allNumbers.push(bingo.callNumber());
+        }
+      });
 
       it('Then all numbers between 1 and 75 are present', function () {
         _.each(allNumbers, function(number){
@@ -34,11 +43,14 @@ describe('Calling Bingo Numbers', function () {
       });
 
       it('And no number has been called more than once', function () {
-        expect(true).to.equals(false);
+        var sorted = _.sortBy(allNumbers, function (n){return parseInt(n);})
+
+        for(i=1; i<=75; i++){
+          expect(sorted[i-1]).to.equals(i);
+        }
       });
+
     });
 
   });
-
-
 });
