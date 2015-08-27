@@ -6,7 +6,7 @@ var chai = require('chai'),
 
 chai.use(sinonChai);
 
-var Bingo = require('../bingo.js');
+var Bingo = require('../src/bingo.js');
 var bingo;
 
 
