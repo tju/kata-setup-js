@@ -1,5 +1,5 @@
 var _ = require('lodash');
-var pullRandom = require("./pullRandom.js");
+var pullRandom = require("./helper/pullRandom.js");
 
 module.exports = function BingoCardsGenerator (){
   var self = this;
