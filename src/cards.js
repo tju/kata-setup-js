@@ -5,17 +5,20 @@ module.exports = function BingoCardsGenerator (){
   var self = this;
   var CARD_SIZE = 5;
 
+  // public methods
+  self.generate = generate;
 
-  var createEmptyCard = function (){
+  return self;
+
+  ///////////// private
+  function createEmptyCard(){
    var emptyCard = new Array(CARD_SIZE);
 
     for(var i =0; i<CARD_SIZE; i++){
       emptyCard[i]= new Array(CARD_SIZE);
     }
-
     return emptyCard;
   };
-
 
   function createAllPossible() {
     var possibleNumbers = new Array(CARD_SIZE);
@@ -31,22 +34,19 @@ module.exports = function BingoCardsGenerator (){
     return row === 2 && col === 2;
   }
 
-  self.generate = function (){
-
-    var matrix = createEmptyCard();
+  function generate (){
+    var card = createEmptyCard();
     var possibleNumbers = createAllPossible();
     for(var col=0; col<CARD_SIZE; col++){
       for(var row=0; row<CARD_SIZE; row++){
 
         if(isCardCenter(row, col)){
-          matrix[col][row] = {};
+          card[col][row] = {};
         }else{
-          matrix[col][row] = pullRandom(possibleNumbers[col]);
+          card[col][row] = pullRandom(possibleNumbers[col]);
         }
       }
     }
-    return matrix;
+    return card;
   }
-
-  return self;
 }
