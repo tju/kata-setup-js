@@ -19,10 +19,14 @@ describe("Cards", function () {
       });
 
       it("Then the generated card has 25 unique spaces", function () {
+        expect(card.length).to.equals(5);
+
         var flatten = _.flatten(card,true);
         var unique = _.uniq(flatten);
 
         expect(flatten).to.eql(unique);
+        expect(flatten.length).to.equals(25);
+
       });
 
       it("And column B only contains numbers between 1 and 15 inclusive", function(){
@@ -52,6 +56,7 @@ describe("Cards", function () {
 
       it("And the generated card has 1 FREE space in the middle",function (){
         expect(card[2][2]).to.be.empty;
+
       })
 
     });
