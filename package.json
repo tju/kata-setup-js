@@ -9,19 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/c089/kata-setup-js.git"
+    "url": "https://github.com/tju/kata-setup-js"
   },
   "keywords": [
     "kata",
     "tdd",
     "testing"
   ],
-  "author": "Christoph Neuroth <christoph.neuroth@gmail.com>",
+  "author": "Ivan Curkovic (tju)",
   "license": "MIT",
   "dependencies": {
     "mocha": "^2.0.1",
     "sinon": "^1.12.1",
     "chai": "^2.0.0",
-    "sinon-chai": "^2.7.0"
+    "sinon-chai": "^2.7.0",
+    "lodash": "^3.10.1"
   }
 }
