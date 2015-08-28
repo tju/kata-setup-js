@@ -4,7 +4,7 @@ kata-setup-js
 
 My setup for doing TDD katas in JavaScript.
 
-Doing kata as separate branches.
+Doing katas on separate branches.
 
 Instructions:
 
